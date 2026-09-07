@@ -1,141 +1,145 @@
-# AeroSight
+# See Through the Floods
 
-### Computer Vision Pipeline for Aerial Image Analysis
+### Computer Vision for Aerial Flood-Scene Analysis
 
-**AeroSight** is a computer-vision project focused on extracting and enhancing visual information from aerial imagery through automated image processing and spatial analysis.
+**See Through the Floods** is a computer-vision project focused on extracting and enhancing visual information from aerial imagery to support the analysis of flood-affected environments.
 
-The project explores how raw aerial images can be transformed into structured, visually interpretable outputs using Python, OpenCV, and NumPy.
+The project uses Python, OpenCV, and NumPy to process aerial images, identify relevant visual regions, and transform raw imagery into clearer, more interpretable outputs.
 
 ---
 
 ## Overview
 
-Aerial imagery contains dense visual information that can be difficult to interpret directly at scale. AeroSight approaches this problem through a systematic image-processing pipeline that identifies relevant regions within an image, processes them programmatically, and generates enhanced outputs for analysis.
+Flooded environments can be difficult to interpret from aerial imagery. Water, terrain, vegetation, infrastructure, and surrounding regions can blend together visually, making it challenging to distinguish areas of interest directly from raw images.
 
-The current implementation establishes the core vision pipeline:
+**See Through the Floods** explores how classical computer-vision techniques can be used to process aerial imagery and make relevant regions more visually distinguishable.
 
-```text
-Aerial Image
-     │
-     ▼
-Image Loading & Validation
-     │
-     ▼
-Preprocessing
-     │
-     ▼
-Region Identification
-     │
-     ▼
-Computer Vision Processing
-     │
-     ▼
-Visual Transformation
-     │
-     ▼
-Processed Output
-```
-
-The project is intentionally structured as an evolving computer-vision system, with the current implementation establishing the foundation for more advanced aerial-image analysis.
-
----
-
-## What It Does
-
-AeroSight currently focuses on automated processing of aerial imagery using classical computer-vision techniques.
-
-### Image Processing
-
-The pipeline handles:
-
-* Image loading and validation
-* Image inspection and verification
-* Pixel-level image processing
-* Region identification
-* Colour-based visual transformation
-* Automated output generation
-
-A key component of the current implementation identifies areas corresponding to land within the provided aerial imagery and transforms them into a visually distinct representation.
-
-This makes the processed regions substantially easier to inspect and analyse compared with the original imagery.
-
----
-
-## Processing Pipeline
-
-The current workflow follows a structured sequence:
-
-### 01 — Input
-
-Aerial images are loaded programmatically and validated before processing.
-
-### 02 — Preprocessing
-
-Images are prepared for downstream computer-vision operations while maintaining the visual information required for region analysis.
-
-### 03 — Region Processing
-
-Relevant image regions are identified using OpenCV-based processing techniques.
-
-### 04 — Visual Transformation
-
-Identified regions are transformed into a consistent visual representation, allowing specific areas of interest to be distinguished from their surrounding environment.
-
-### 05 — Output Generation
-
-Processed images are automatically written to a dedicated output directory, preserving the distinction between source imagery and generated results.
-
----
-
-## Example Workflow
+The current pipeline focuses on automated image processing and visual transformation, establishing a foundation for analysing aerial flood scenes computationally.
 
 ```text
-┌─────────────────────┐
-│   Input Aerial      │
-│       Image         │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│ Image Validation    │
-│ & Preprocessing     │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│ Region Identification│
-│     & Processing    │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│ Visual Enhancement  │
-│   & Transformation  │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│   Processed Image   │
-└─────────────────────┘
+                    Aerial Imagery
+                          │
+                          ▼
+                Image Loading & Validation
+                          │
+                          ▼
+                     Preprocessing
+                          │
+                          ▼
+                 Region Identification
+                          │
+                          ▼
+                 Computer Vision Processing
+                          │
+                          ▼
+                  Visual Transformation
+                          │
+                          ▼
+                   Processed Imagery
 ```
+
+---
+
+## Core Objective
+
+The central objective of the project is to transform raw aerial imagery into a representation that makes important visual regions easier to distinguish and analyse.
+
+Rather than relying entirely on manual inspection, the pipeline applies programmatic image-processing techniques to systematically examine and modify aerial imagery.
+
+The current implementation particularly focuses on identifying land-related regions within the imagery and applying a distinct visual representation to make those regions more apparent against surrounding areas.
+
+---
+
+## Image Processing Pipeline
+
+### 01 — Image Input
+
+Aerial imagery is loaded programmatically and inspected before processing.
+
+The input stage ensures that images can be accessed correctly and passed reliably into the computer-vision pipeline.
+
+### 02 — Image Validation
+
+Input images are verified before further processing, helping ensure that the pipeline operates on valid image data.
+
+### 03 — Preprocessing
+
+The imagery is prepared for computer-vision operations while preserving the visual information required for identifying relevant regions.
+
+### 04 — Region Identification
+
+The pipeline analyses image information to identify regions corresponding to the target visual characteristics.
+
+### 05 — Visual Transformation
+
+Identified regions are transformed into a distinct visual representation, improving their visibility and making the resulting imagery easier to inspect.
+
+### 06 — Output Generation
+
+Processed images are automatically generated and stored separately from the original imagery, allowing direct comparison between input and output.
+
+---
+
+## Current Implementation
+
+The project currently establishes the fundamental image-processing workflow required for aerial-scene analysis.
+
+### Implemented
+
+* Aerial image loading
+* Image validation and inspection
+* OpenCV-based image processing
+* NumPy-based image-array operations
+* Region-level image transformation
+* Automated processing of input imagery
+* Processed image generation
+* Dedicated input and output image organization
+
+The implementation is currently developed through a Jupyter-based workflow, allowing image-processing operations and their visual results to be inspected iteratively.
+
+---
+
+## Visual Processing
+
+One of the central operations currently implemented is the identification and transformation of land-denoted regions within aerial imagery.
+
+The resulting output provides a visually enhanced representation in which these regions become substantially easier to distinguish from their surroundings.
+
+```text
+        ORIGINAL IMAGE
+              │
+              ▼
+       Pixel-level Analysis
+              │
+              ▼
+      Region Identification
+              │
+              ▼
+       Visual Transformation
+              │
+              ▼
+        PROCESSED IMAGE
+```
+
+This approach provides a simple but interpretable method of extracting meaningful visual structure from complex aerial scenes.
 
 ---
 
 ## Technology Stack
 
-| Technology           | Purpose                                           |
+| Technology           | Role                                              |
 | -------------------- | ------------------------------------------------- |
-| **Python**           | Core implementation and image-processing pipeline |
+| **Python**           | Core implementation and image-processing logic    |
 | **OpenCV**           | Computer vision and image manipulation            |
-| **NumPy**            | Numerical operations and image-array processing   |
-| **Jupyter Notebook** | Experimentation, development, and visualization   |
+| **NumPy**            | Numerical computation and image-array operations  |
+| **Jupyter Notebook** | Development, experimentation, and visual analysis |
 
 ---
 
 ## Repository Structure
 
 ```text
-aerosight/
+see-through-the-floods/
 │
 ├── images/
 │   └── Input aerial imagery
@@ -144,7 +148,7 @@ aerosight/
 │   └── Processed image outputs
 │
 ├── maincode.ipynb
-│   └── Core computer-vision implementation
+│   └── Core image-processing implementation
 │
 ├── .gitignore
 └── README.md
@@ -152,14 +156,25 @@ aerosight/
 
 ---
 
-## Current Capabilities
+## Input → Output
 
-* Automated aerial-image loading
-* Image validation and inspection
-* OpenCV-based image processing
-* Region-level visual transformation
-* Programmatic output generation
-* Separate organization of source and processed imagery
+The project maintains a clear separation between source imagery and generated results.
+
+This makes it possible to evaluate the effect of each processing operation by comparing:
+
+**Raw Aerial Image → Processed Aerial Image**
+
+and visually assess how effectively the pipeline isolates and enhances relevant regions.
+
+---
+
+## Project Direction
+
+**See Through the Floods** is being developed as an evolving computer-vision project centred around aerial-image interpretation.
+
+The current implementation establishes the image-processing foundation while providing a practical environment for experimenting with methods for extracting meaningful information from visually complex flood scenes.
+
+The emphasis is on building the pipeline incrementally — from raw image data and pixel-level operations toward increasingly structured visual analysis.
 
 ---
 
@@ -167,17 +182,11 @@ aerosight/
 
 **Active Development**
 
-AeroSight is currently focused on establishing a reliable foundation for aerial-image processing and visual analysis. The existing implementation serves as the base for progressively more sophisticated computer-vision experimentation.
+The project currently contains the foundational aerial-image processing workflow and its corresponding generated outputs.
 
----
+Further development will build upon this foundation while preserving the project's central objective:
 
-## Why AeroSight?
-
-The project explores a fundamental computer-vision problem:
-
-> **How can raw visual data be transformed into information that is easier for machines and humans to interpret?**
-
-By building the pipeline from the image level upward, AeroSight provides a practical foundation for experimenting with increasingly sophisticated methods of aerial-scene analysis.
+> **Making complex flood-affected scenes easier to see, interpret, and analyse through computer vision.**
 
 ---
 
